@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="dataList"
+            type="com.arun.taghivedemoapp.network.ApiResponse" />
+    </data>
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    style="@style/CardViewStyle"
+    android:layout_height="wrap_content">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/bitcoin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_title"
+           android:textSize="15sp"
+            android:textColor="#535353"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:maxLines="2"
+            android:minLines="1"
+            app:layout_constraintBottom_toTopOf="@+id/tv_secondary"
+            app:layout_constraintEnd_toStartOf="@id/tv_price_title"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{dataList.symbol}" />
+
+        <TextView
+            android:id="@+id/tv_secondary"
+            android:textSize="13sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintEnd_toStartOf="@id/tv_price_secondary"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            android:text="@{dataList.baseAsset}" />
+        <TextView
+            android:id="@+id/tv_price_title"
+            android:textSize="15sp"
+            android:textColor="#535353"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:maxLines="2"
+            android:minLines="1"
+            app:layout_constraintBottom_toTopOf="@+id/tv_price_secondary"
+            app:layout_constraintEnd_toStartOf="@id/tv_amount"
+            app:layout_constraintStart_toEndOf="@id/tv_title"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{dataList.volume}" />
+
+        <TextView
+            android:id="@+id/tv_price_secondary"
+            android:textSize="13sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_amount"
+            app:layout_constraintStart_toEndOf="@id/tv_secondary"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price_title"
+            android:text="@{dataList.lastPrice}" />
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_marginStart="5dp"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textColor="@color/teal_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="+ 00.00 %" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
+
+
+</layout>
